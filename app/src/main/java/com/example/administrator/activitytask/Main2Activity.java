@@ -5,15 +5,25 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
 
 public class Main2Activity extends AppCompatActivity {
 
+
+    TextView tv;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
+        tv=(TextView) findViewById(R.id.tv01);
 
-String a =getIntent().getStringExtra("STRING_VALUE");
+
+
+        String a=getIntent().getStringExtra("hjk");
+        int b = getIntent().getIntExtra("ghjghj",0);
+        tv.setText(a);
+
+
 
 
 

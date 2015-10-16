@@ -7,9 +7,15 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
 
 
 public class MainActivity extends AppCompatActivity {
+
+    EditText ed;
+    Button button;
+    TextView tv;
 
 
     @Override
@@ -17,15 +23,26 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-  Button button =(Button) findViewById(R.id.button);
+        ed = (EditText) findViewById(R.id.edittext01);
+
+  Button button =(Button) findViewById(R.id.button01);
+
+
+
+
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent= new Intent(MainActivity.this,Main2Activity.class);
+                String naf = ed.getText().toString();
 
-                String a="happy";
-                intent.putExtra("STRING_VALUE",a);
-                        intent.putExtra("INT",1);
+                String strRev = toReverse(naf);
+
+                Intent intent = new Intent(MainActivity.this, Main2Activity.class);
+
+
+                intent.putExtra("hjk",strRev);
+                intent.putExtra("ghjgjh",1);
+                //      intent.putExtra("INT",1);
                 startActivity(intent);
             }
         });
@@ -34,6 +51,15 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+    }
+
+
+    public String toReverse(String string){
+        String rev="";
+        for(int i=string.length()-1;i>=0;i--){
+            rev+=string.charAt(i);
+        }
+        return rev;
     }
 
     @Override
